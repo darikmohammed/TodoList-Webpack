@@ -1,13 +1,24 @@
-import _ from "lodash";
-import "./style.css";
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js';
+import './style.css';
 
-function component() {
-  const element = document.createElement("div");
+let toDoLists = [
+  {
+    description: 'Wash the dishes',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'Complete to do list project',
+    completed: false,
+    index: 2,
+  },
+];
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(["Hello", "WebPack"], " ");
+const uploadHtml = () => {
+  toDoLists.forEach((list)=>{
+    
+  })
+};
 
-  return element;
-}
-
-document.body.appendChild(component());
+uploadHtml(); 

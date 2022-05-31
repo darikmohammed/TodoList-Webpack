@@ -8,7 +8,45 @@
 </head>
 
 <body>
-    <h1>Hello webpack! This is Darik.</h1>
+    <main>
+        <section class="to-do-list">
+            <h1> To-Do List</h1>
+            <div class="list-container">
+                <div class="list-heading">
+                    <h2 class="">Today's To Do</h2>
+                    <button type="button" class="refresh-list"><i class="fa-solid fa-arrows-rotate"></i></button>
+                </div>
+                <hr>
+                <div class="list-add">
+                    <input type="text" name="add-list" id="add-list" placeholder="Add to your list...">
+                    <button type="button" class="add-list-btn"><i class="fa-solid fa-check"></i></button>
+                </div>
+                <hr>
+                <div class="view-list">
+                    <ul>
+                        <li>
+                            <div class="list">
+                                <input type="checkbox" name="list-1" id="list-1" class="checkbox">
+                                <label for="list-1">Wash the dishes</label>
+                            </div>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                        <li>
+                            <div class="list">
+                                <input type="checkbox" name="list-2" id="list-2" class="checkbox">
+                                <label for="list-2">Wash the dishes</label>
+                            </div>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="delete-list">
+                    <button type="button" class="delete-checked">Clear all completed</button>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
