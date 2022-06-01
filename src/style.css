@@ -14,7 +14,6 @@ body {
 ul {
   list-style: none;
 }
-
 button {
   border: none;
   background-color: inherit;
@@ -73,8 +72,8 @@ button:hover {
   margin: 1rem;
 }
 
-.list-add input,
-.list-add input:focus {
+input,
+input:focus {
   border: none;
   background-color: inherit;
   font-size: 16px;
@@ -87,7 +86,7 @@ button:hover {
   transform: scale(1.1);
 }
 
-.add-form {
+form {
   display: flex;
   justify-content: space-between;
 }
@@ -120,6 +119,11 @@ button:hover {
   transition: 1s;
   color: #f76c6a;
   font-weight: bold;
+}
+.edit-form {
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {

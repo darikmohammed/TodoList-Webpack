@@ -15,36 +15,36 @@ const uploadHtml = () => {
   toDoLists.forEach((list) => {
     if (list.completed) {
       ulList.innerHTML += ` 
-                        <li>
+                        <li id="${list.index - 1}" class = "todo-list">
                           <div class="list">
                             <input type="checkbox" name="${list.index}" id="${
-  list.index
-}" class="checkbox" checked>
+        list.index
+      }" class="checkbox" checked>
                             <label for="${list.index}"><s>${
-  list.description
-}</s></label>
+        list.description
+      }</s></label>
                           </div>
                           <button type="button" id= "${
-  list.index - 1
-}" class="deleteList">
+                            list.index - 1
+                          }" class="deleteList">
                           <i class="fa-solid fa-trash-can"></i>
                           </button>
                         </li>  
                           `;
     } else {
       ulList.innerHTML += ` 
-                        <li>
+                        <li id="${list.index - 1}" class = "todo-list">
                           <div class="list">
                             <input type="checkbox" name="${list.index}" id="${
-  list.index
-}" class="checkbox">
+        list.index
+      }" class="checkbox">
                             <label for="${list.index}">${
-  list.description
-}</label>
+        list.description
+      }</label>
                           </div>
                           <button type="button" id= "${
-  list.index - 1
-}" class="deleteList">
+                            list.index - 1
+                          }" class="deleteList">
                           <i class="fa-solid fa-trash-can"></i>
                           </button>
                         </li>  
@@ -77,6 +77,32 @@ const uploadHtml = () => {
       const buttonId = button.getAttribute('id');
       localList.deleteList(buttonId * 1);
       uploadHtml();
+    });
+  });
+  //eventlistener for editing
+  const listLi = document.querySelectorAll('.todo-list');
+  listLi.forEach((list) => {
+    list.addEventListener('dblclick', () => {
+      const localList = new List();
+      const todoListsLocal = localList.getList();
+      const editId = list.getAttribute('id') * 1;
+      list.innerHTML = `
+     <form action= "#" class= "edit-form" id= "edit${editId}"> 
+       <div>
+         <i class="fa-solid fa-pen-to-square"></i>
+         <input type="text" id="input-edit${editId}" value="${todoListsLocal[editId].description}">
+       </div>
+       <button type ="submit" > <i class="fa-solid fa-check"></i></button>
+     </form>
+     <div></div>
+     `;
+      const editForm = document.querySelector(`#edit${editId}`);
+      editForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const editValue = document.querySelector(`#input-edit${editId}`);
+        localList.editTask(editId, editValue.value);
+        uploadHtml();
+      });
     });
   });
 };

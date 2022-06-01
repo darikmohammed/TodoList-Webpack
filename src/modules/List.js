@@ -30,17 +30,6 @@ export default class List {
       this.arrengeStorage();
     }
   };
-
-  arrengeStorage = () => {
-    const lists = this.getList();
-    let index = 1;
-    lists.forEach((list) => {
-      list.index = index;
-      index += 1;
-    });
-    this.addList(lists);
-  };
-
   deleteCompleted = () => {
     const lists = this.getList();
     const listRemoved = lists.filter((item) => {
@@ -51,5 +40,20 @@ export default class List {
     });
     this.addList(listRemoved);
     this.arrengeStorage();
+  };
+  arrengeStorage = () => {
+    const lists = this.getList();
+    let index = 1;
+    lists.forEach((list) => {
+      list.index = index;
+      index += 1;
+    });
+    this.addList(lists);
+  };
+
+  editTask = (index, value) => {
+    const lists = this.getList();
+    lists[index].description = value;
+    this.addList(lists);
   };
 }
