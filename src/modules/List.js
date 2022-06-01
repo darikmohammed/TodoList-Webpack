@@ -30,6 +30,7 @@ export default class List {
       this.arrengeStorage();
     }
   };
+
   deleteCompleted = () => {
     const lists = this.getList();
     const listRemoved = lists.filter((item) => {
@@ -41,6 +42,7 @@ export default class List {
     this.addList(listRemoved);
     this.arrengeStorage();
   };
+
   arrengeStorage = () => {
     const lists = this.getList();
     let index = 1;

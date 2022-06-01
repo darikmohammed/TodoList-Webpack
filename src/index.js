@@ -18,15 +18,15 @@ const uploadHtml = () => {
                         <li id="${list.index - 1}" class = "todo-list">
                           <div class="list">
                             <input type="checkbox" name="${list.index}" id="${
-        list.index
-      }" class="checkbox" checked>
+  list.index
+}" class="checkbox" checked>
                             <label for="${list.index}"><s>${
-        list.description
-      }</s></label>
+  list.description
+}</s></label>
                           </div>
                           <button type="button" id= "${
-                            list.index - 1
-                          }" class="deleteList">
+  list.index - 1
+}" class="deleteList">
                           <i class="fa-solid fa-trash-can"></i>
                           </button>
                         </li>  
@@ -36,15 +36,15 @@ const uploadHtml = () => {
                         <li id="${list.index - 1}" class = "todo-list">
                           <div class="list">
                             <input type="checkbox" name="${list.index}" id="${
-        list.index
-      }" class="checkbox">
+  list.index
+}" class="checkbox">
                             <label for="${list.index}">${
-        list.description
-      }</label>
+  list.description
+}</label>
                           </div>
                           <button type="button" id= "${
-                            list.index - 1
-                          }" class="deleteList">
+  list.index - 1
+}" class="deleteList">
                           <i class="fa-solid fa-trash-can"></i>
                           </button>
                         </li>  
@@ -79,7 +79,7 @@ const uploadHtml = () => {
       uploadHtml();
     });
   });
-  //eventlistener for editing
+  // eventlistener for editing
   const listLi = document.querySelectorAll('.todo-list');
   listLi.forEach((list) => {
     list.addEventListener('dblclick', () => {

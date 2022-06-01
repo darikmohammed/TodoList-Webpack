@@ -14,6 +14,7 @@ body {
 ul {
   list-style: none;
 }
+
 button {
   border: none;
   background-color: inherit;
@@ -120,6 +121,7 @@ form {
   color: #f76c6a;
   font-weight: bold;
 }
+
 .edit-form {
   flex-wrap: wrap;
   flex-basis: 100%;
