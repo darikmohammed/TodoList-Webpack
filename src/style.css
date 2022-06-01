@@ -18,6 +18,13 @@ ul {
 button {
   border: none;
   background-color: inherit;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+  transform: scale(1.5);
+  transition: 0.5s;
 }
 
 ::placeholder {
@@ -64,16 +71,25 @@ button {
 
 .list-add {
   margin: 1rem;
-  display: flex;
-  justify-content: space-between;
 }
 
-.list-add input,
-.list-add input:focus {
+input,
+input:focus {
   border: none;
   background-color: inherit;
   font-size: 16px;
   outline: none;
+  transition: 0.5s;
+}
+
+.list-add input:focus {
+  color: #655a58;
+  transform: scale(1.1);
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
 }
 
 .view-list {
@@ -98,6 +114,18 @@ button {
   padding: 1rem;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+}
+
+.delete-checked:hover {
+  transition: 1s;
+  color: #f76c6a;
+  font-weight: bold;
+}
+
+.edit-form {
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {
