@@ -1,56 +1,54 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# TO-do List
 
-> Description the project.
-
+> "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. A simple website that allows user to create a To-do list.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML5
+- CSS3
+- Javascript ES6
+- Webpack
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://livedemo.com)
 
-
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+- Visual Studio code or any Code Editor.
+
 ### Setup
 
-### Install
+#### Download the file to local directory
 
-### Usage
+- if you have already insall github in your local pc run:
 
-### Run tests
+```sh
+git clone git@github.com:darikmohammed/TodoList-Webpack.git
+```
 
-### Deployment
+- Or download the zip file from the github directory.
 
+#### Linters tests
 
+- Lighthouse
+- Webhint
+- Stylelint
+- node_modules checker
 
 ## Authors
 
-👤 **Author1**
+👤 **Darik Mohammed**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/darikmohammed)
+- Twitter: [@twitterhandle](https://twitter.com/r_darik)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/darik-mohammed-57352120b/)
 
 ## 🤝 Contributing
 
