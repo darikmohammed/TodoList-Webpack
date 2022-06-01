@@ -24,7 +24,9 @@ const uploadHtml = () => {
         list.description
       }</s></label>
                           </div>
-                          <button type="button" class= "${list.index - 1}">
+                          <button type="button" id= "${
+                            list.index - 1
+                          }" class="deleteList">
                           <i class="fa-solid fa-trash-can"></i>
                           </button>
                         </li>  
@@ -40,13 +42,17 @@ const uploadHtml = () => {
         list.description
       }</label>
                           </div>
-                          <button type="button" class= "${list.index - 1}">
+                          <button type="button" id= "${
+                            list.index - 1
+                          }" class="deleteList">
                           <i class="fa-solid fa-trash-can"></i>
                           </button>
                         </li>  
                           `;
     }
   });
+
+  // eventlistener for checkbox
   checkboxes = document.querySelectorAll('.checkbox');
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', () => {
@@ -61,6 +67,16 @@ const uploadHtml = () => {
       localList.addList(todoListLocal);
       uploadHtml();
       checkboxes = document.querySelectorAll('.checkbox');
+    });
+  });
+  //eventlistener for deleteBtn
+  const buttons = document.querySelectorAll('.deleteList');
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const localList = new List();
+      const buttonId = button.getAttribute('id');
+      localList.deleteList(buttonId * 1);
+      uploadHtml();
     });
   });
 };

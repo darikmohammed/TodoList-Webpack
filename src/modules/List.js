@@ -14,5 +14,30 @@ export default class List {
   addList = (todoListData) => {
     localStorage.setItem('todoList', JSON.stringify(todoListData));
   };
-  deleteList = (index) => {};
+
+  deleteList = (index) => {
+    if (index !== null) {
+      const list = this.getList();
+
+      const listRemoved = list.filter((item, key) => {
+        if (key !== index) {
+          return true;
+        }
+
+        return null;
+      });
+      this.addList(listRemoved);
+      this.arrengeStorage();
+    }
+  };
+
+  arrengeStorage = () => {
+    const lists = this.getList();
+    let index = 1;
+    lists.forEach((list) => {
+      list.index = index;
+      index += 1;
+    });
+    this.addList(lists);
+  };
 }
