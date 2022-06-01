@@ -101,3 +101,11 @@ form.addEventListener('submit', (event) => {
   value.value = '';
   uploadHtml();
 });
+
+const deleteChecked = document.querySelector('.delete-checked');
+
+deleteChecked.addEventListener('click', () => {
+  const localList = new List();
+  localList.deleteCompleted();
+  uploadHtml();
+});

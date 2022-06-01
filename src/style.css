@@ -72,9 +72,6 @@ button:hover {
 .list-add {
   margin: 1rem;
 }
-.list-add:focus {
-  background-color: #f79e89;
-}
 
 .list-add input,
 .list-add input:focus {
@@ -82,6 +79,12 @@ button:hover {
   background-color: inherit;
   font-size: 16px;
   outline: none;
+  transition: 0.5s;
+}
+
+.list-add input:focus {
+  color: #655a58;
+  transform: scale(1.1);
 }
 .add-form {
   display: flex;
@@ -109,6 +112,12 @@ button:hover {
   padding: 1rem;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+}
+
+.delete-checked:hover {
+  transition: 1s;
+  color: #f76c6a;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {

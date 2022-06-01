@@ -40,4 +40,16 @@ export default class List {
     });
     this.addList(lists);
   };
+
+  deleteCompleted = () => {
+    const lists = this.getList();
+    const listRemoved = lists.filter((item, key) => {
+      if (item.completed) {
+        return null;
+      }
+      return item;
+    });
+    this.addList(listRemoved);
+    this.arrengeStorage();
+  };
 }
