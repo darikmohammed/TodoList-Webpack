@@ -18,6 +18,13 @@ ul {
 button {
   border: none;
   background-color: inherit;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+  transform: scale(1.5);
+  transition: 0.5s;
 }
 
 ::placeholder {
@@ -64,8 +71,9 @@ button {
 
 .list-add {
   margin: 1rem;
-  display: flex;
-  justify-content: space-between;
+}
+.list-add:focus {
+  background-color: #f79e89;
 }
 
 .list-add input,
@@ -75,7 +83,10 @@ button {
   font-size: 16px;
   outline: none;
 }
-
+.add-form {
+  display: flex;
+  justify-content: space-between;
+}
 .view-list {
   margin: 1rem;
   margin-top: 0;
