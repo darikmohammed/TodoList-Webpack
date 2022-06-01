@@ -43,7 +43,7 @@ export default class List {
 
   deleteCompleted = () => {
     const lists = this.getList();
-    const listRemoved = lists.filter((item, key) => {
+    const listRemoved = lists.filter((item) => {
       if (item.completed) {
         return null;
       }

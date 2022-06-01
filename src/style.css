@@ -86,10 +86,12 @@ button:hover {
   color: #655a58;
   transform: scale(1.1);
 }
+
 .add-form {
   display: flex;
   justify-content: space-between;
 }
+
 .view-list {
   margin: 1rem;
   margin-top: 0;
