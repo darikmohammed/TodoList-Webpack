@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
 
 const ulList = document.getElementById('dynamic-list');
-let toDoLists = [
+const toDoLists = [
   {
     description: 'Wash the dishes',
     completed: false,
@@ -17,9 +17,7 @@ let toDoLists = [
 ];
 
 const uploadHtml = () => {
-  toDoLists.sort((a, b) => {
-    return a.index - b.index;
-  });
+  toDoLists.sort((a, b) => a.index - b.index);
   toDoLists.forEach((list) => {
     if (list.completed) {
       ulList.innerHTML += ` 
