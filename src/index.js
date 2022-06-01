@@ -10,6 +10,11 @@ const toDoLists = [
     index: 2,
   },
   {
+    description: 'Read about webpack',
+    completed: false,
+    index: 3,
+  },
+  {
     description: 'Complete to do list project',
     completed: false,
     index: 1,
