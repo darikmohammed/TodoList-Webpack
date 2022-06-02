@@ -1,8 +1,8 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
-import List from './modules/List.js';
 import Sortable from 'sortablejs';
+import List from './modules/List.js';
 
 const ulList = document.getElementById('dynamic-list');
 let toDoLists = [];
