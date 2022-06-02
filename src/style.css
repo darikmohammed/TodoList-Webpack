@@ -9,7 +9,7 @@
 
 body {
   background-color: rgb(246, 246, 246);
-  background: url(./img/double-bubble-outline.webp);
+  background-image: url(./img/double-bubble-outline.webp);
 }
 
 ul {
