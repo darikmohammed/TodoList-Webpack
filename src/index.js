@@ -11,46 +11,50 @@ const uploadHtml = () => {
   const local = new List();
   toDoLists = local.getList();
   toDoLists.sort((a, b) => a.index - b.index);
-  ulList.innerHTML = '';
-  toDoLists.forEach((list) => {
-    if (list.completed) {
-      ulList.innerHTML += ` 
+  if (toDoLists.length) {
+    ulList.innerHTML = '';
+    toDoLists.forEach((list) => {
+      if (list.completed) {
+        ulList.innerHTML += ` 
                         <li id="${list.index - 1}" class = "todo-list">
                           <div class="list">
                             <input type="checkbox" name="${list.index}" id="${
-  list.index
-}" class="checkbox" checked>
+          list.index
+        }" class="checkbox" checked>
                             <label for="${list.index}"><s>${
-  list.description
-}</s></label>
+          list.description
+        }</s></label>
                           </div>
                           <button type="button" id= "${
-  list.index - 1
-}" class="deleteList">
+                            list.index - 1
+                          }" class="deleteList">
                           <i class="fa-solid fa-trash-can"></i>
                           </button>
                         </li>  
                           `;
-    } else {
-      ulList.innerHTML += ` 
+      } else {
+        ulList.innerHTML += ` 
                         <li id="${list.index - 1}" class = "todo-list">
                           <div class="list">
                             <input type="checkbox" name="${list.index}" id="${
-  list.index
-}" class="checkbox">
+          list.index
+        }" class="checkbox">
                             <label for="${list.index}">${
-  list.description
-}</label>
+          list.description
+        }</label>
                           </div>
                           <button type="button" id= "${
-  list.index - 1
-}" class="deleteList">
+                            list.index - 1
+                          }" class="deleteList">
                           <i class="fa-solid fa-trash-can"></i>
                           </button>
                         </li>  
                           `;
-    }
-  });
+      }
+    });
+  } else {
+    ulList.innerHTML = '<li>No Task to Preview. Add New Todo list!</li>';
+  }
 
   // eventlistener for checkbox
   checkboxes = document.querySelectorAll('.checkbox');
@@ -133,5 +137,11 @@ const deleteChecked = document.querySelector('.delete-checked');
 deleteChecked.addEventListener('click', () => {
   const localList = new List();
   localList.deleteCompleted();
+  uploadHtml();
+});
+
+const refresh = document.querySelector('.refresh-list');
+
+refresh.addEventListener('click', () => {
   uploadHtml();
 });
