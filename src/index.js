@@ -1,6 +1,7 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
+import Sortable from 'sortablejs';
 import List from './modules/List.js';
 
 const ulList = document.getElementById('dynamic-list');
@@ -11,11 +12,12 @@ const uploadHtml = () => {
   const local = new List();
   toDoLists = local.getList();
   toDoLists.sort((a, b) => a.index - b.index);
-  ulList.innerHTML = '';
-  toDoLists.forEach((list) => {
-    if (list.completed) {
-      ulList.innerHTML += ` 
-                        <li id="${list.index - 1}" class = "todo-list">
+  if (toDoLists.length) {
+    ulList.innerHTML = '';
+    toDoLists.forEach((list) => {
+      if (list.completed) {
+        ulList.innerHTML += ` 
+                        <li id="${list.index - 1}" class = "todo-list" >
                           <div class="list">
                             <input type="checkbox" name="${list.index}" id="${
   list.index
@@ -31,9 +33,9 @@ const uploadHtml = () => {
                           </button>
                         </li>  
                           `;
-    } else {
-      ulList.innerHTML += ` 
-                        <li id="${list.index - 1}" class = "todo-list">
+      } else {
+        ulList.innerHTML += ` 
+                        <li id="${list.index - 1}" class = "todo-list" >
                           <div class="list">
                             <input type="checkbox" name="${list.index}" id="${
   list.index
@@ -49,9 +51,38 @@ const uploadHtml = () => {
                           </button>
                         </li>  
                           `;
-    }
-  });
+      }
+    });
+  } else {
+    ulList.innerHTML = '<li>No Task to Preview. Add New Todo list!</li>';
+  }
 
+  // eventlistener for editing
+  const listLi = document.querySelectorAll('.todo-list');
+  listLi.forEach((list) => {
+    list.addEventListener('dblclick', () => {
+      const localList = new List();
+      const todoListsLocal = localList.getList();
+      const editId = list.getAttribute('id') * 1;
+      list.innerHTML = `
+     <form action= "#" class= "edit-form" id= "edit${editId}"> 
+       <div>
+         <i class="fa-solid fa-pen-to-square"></i>
+         <input type="text" id="input-edit${editId}" value="${todoListsLocal[editId].description}">
+       </div>
+       <button type ="submit" > <i class="fa-solid fa-check"></i></button>
+     </form>
+     <div></div>
+     `;
+      const editForm = document.querySelector(`#edit${editId}`);
+      editForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const editValue = document.querySelector(`#input-edit${editId}`);
+        localList.editTask(editId, editValue.value);
+        uploadHtml();
+      });
+    });
+  });
   // eventlistener for checkbox
   checkboxes = document.querySelectorAll('.checkbox');
   checkboxes.forEach((checkbox) => {
@@ -79,31 +110,21 @@ const uploadHtml = () => {
       uploadHtml();
     });
   });
-  // eventlistener for editing
-  const listLi = document.querySelectorAll('.todo-list');
-  listLi.forEach((list) => {
-    list.addEventListener('dblclick', () => {
-      const localList = new List();
-      const todoListsLocal = localList.getList();
-      const editId = list.getAttribute('id') * 1;
-      list.innerHTML = `
-     <form action= "#" class= "edit-form" id= "edit${editId}"> 
-       <div>
-         <i class="fa-solid fa-pen-to-square"></i>
-         <input type="text" id="input-edit${editId}" value="${todoListsLocal[editId].description}">
-       </div>
-       <button type ="submit" > <i class="fa-solid fa-check"></i></button>
-     </form>
-     <div></div>
-     `;
-      const editForm = document.querySelector(`#edit${editId}`);
-      editForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const editValue = document.querySelector(`#input-edit${editId}`);
-        localList.editTask(editId, editValue.value);
-        uploadHtml();
+
+  //   //drag and drop event listeners
+
+  const listContainer = document.querySelector('#dynamic-list');
+  Sortable.create(listContainer, {
+    onEnd() {
+      const liList = document.querySelectorAll('.todo-list');
+      const listArray = [];
+      const listClass = new List();
+      liList.forEach((list) => {
+        listArray.push(list.getAttribute('id') * 1);
       });
-    });
+      listClass.reorder(listArray);
+      uploadHtml();
+    },
   });
 };
 
@@ -133,5 +154,11 @@ const deleteChecked = document.querySelector('.delete-checked');
 deleteChecked.addEventListener('click', () => {
   const localList = new List();
   localList.deleteCompleted();
+  uploadHtml();
+});
+
+const refresh = document.querySelector('.refresh-list');
+
+refresh.addEventListener('click', () => {
   uploadHtml();
 });

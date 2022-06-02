@@ -9,6 +9,7 @@
 
 body {
   background-color: rgb(246, 246, 246);
+  background-image: url(./img/double-bubble-outline.webp);
 }
 
 ul {
@@ -117,9 +118,8 @@ form {
 }
 
 .delete-checked:hover {
-  transition: 1s;
-  color: #f76c6a;
-  font-weight: bold;
+  transition: 0.7s;
+  transform: scale(1.1);
 }
 
 .edit-form {
