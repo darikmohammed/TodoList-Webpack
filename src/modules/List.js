@@ -58,4 +58,14 @@ export default class List {
     lists[index].description = value;
     this.addList(lists);
   };
+
+  reorder = (newOrder) => {
+    const newArray = [];
+    const prevArray = this.getList();
+    for (let i = 0; i < prevArray.length; i += 1) {
+      newArray[i] = prevArray[newOrder[i]];
+    }
+    this.addList(newArray);
+    this.arrengeStorage();
+  };
 }
