@@ -56,6 +56,14 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
+## 🤝 Contributor
+
+👤 **Ulises Largaespada**
+
+- GitHub: [@ulisesedu7](https://github.com/ulisesedu7)
+- Twitter: [@LongswordMusic](https://twitter.com/LongswordMusic)
+- LinkedIn: [Ulises Largaespada](https://www.linkedin.com/in/ulises-largaespada-45570b1a4/)
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
