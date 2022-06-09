@@ -4,7 +4,7 @@
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "private": true,
   "scripts": {
-    "test": "test --coverage",
+    "test": "jest",
     "build": "webpack",
     "start": "webpack serve --open",
     "predeploy": "npm run build",
@@ -32,6 +32,7 @@
     "hint": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.1",
+    "jest-localstorage-mock": "^2.4.21",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
@@ -45,5 +46,9 @@
     "@fortawesome/fontawesome-free": "^6.1.1",
     "lodash": "^4.17.21",
     "sortablejs": "^1.15.0"
+  }, 
+  "jest" : {
+    "resetMocks": false,
+    "setupFiles": ["jest-localstorage-mock", "./__setups__/localstorage.js"]
   }
 }
