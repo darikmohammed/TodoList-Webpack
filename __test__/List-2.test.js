@@ -58,8 +58,8 @@ describe('This function', () => {
   <li id="${todoList[0].index - 1}" class = "todo-list" >
     <div class="list">
       <input type="checkbox" name="${todoList[0].index}" id="${
-      todoList[0].index
-    }" class="checkbox">
+  todoList[0].index
+}" class="checkbox">
       <label for="${todoList[0].index}">${todoList[0].description}</label>
     </div>
     <button type="button" id= "${todoList[0].index - 1}" class="deleteList">
@@ -72,8 +72,6 @@ describe('This function', () => {
   });
 
   test('deletes edit the element from the dom', () => {
-
-
     todoList = list.getList();
     todoList[0].completed = true;
 
@@ -81,14 +79,13 @@ describe('This function', () => {
 
     list.deleteCompleted();
 
-
     const divList = document.getElementById('dynamic-list');
     divList.innerHTML = ` 
   <li id="${todoList[0].index - 1}" class = "todo-list" >
     <div class="list">
       <input type="checkbox" name="${todoList[0].index}" id="${
-      todoList[0].index
-    }" class="checkbox">
+  todoList[0].index
+}" class="checkbox">
       <label for="${todoList[0].index}">${todoList[0].description}</label>
     </div>
     <button type="button" id= "${todoList[0].index - 1}" class="deleteList">
@@ -101,7 +98,6 @@ describe('This function', () => {
 
     const listLi = document.querySelectorAll('#dynamic-list li');
     expect(listLi).toHaveLength(0);
-
   });
 
   test('', () => {
@@ -112,7 +108,7 @@ describe('This function', () => {
 
     const divList = document.getElementById('dynamic-list');
 
-  divList.innerHTML = ` 
+    divList.innerHTML = ` 
   <li id="${list.index - 1}" class = "todo-list" >
     <div class="list">
       <input type="checkbox" name="${list.index}" id="${
@@ -128,5 +124,5 @@ describe('This function', () => {
 
     const listLi = document.querySelector('.checkbox');
     expect(listLi.className).toBe('checkbox true');
-  })
+  });
 });
