@@ -1,8 +1,6 @@
 import List from '../src/modules/List.js';
-// import localStorageMock from './__mock__/localStorage.js';
 
 const list = new List();
-// global.localStorage = localStorageMock();
 
 describe('This function ', () => {
   const todoList = [
