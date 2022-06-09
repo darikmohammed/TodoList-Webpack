@@ -19,9 +19,22 @@ describe('This function', () => {
     expect(todoList[0].description).toBe('New value test');
   });
 
-  test('check if the stauts completed is updated', () => {
+  test('checks if the status completed is updated', () => {
     todoList = list.getList();
     todoList[0].completed = true;
     expect(todoList[0].completed).toBe(true);
+
+  });
+
+  test(' and deletes the completed items', () => {
+    todoList = list.getList();
+    todoList[0].completed = true;
+
+    list.addList(todoList);
+    
+    list.deleteCompleted();
+
+
+    expect(list.getList().length).toBe(0);
   });
 });
