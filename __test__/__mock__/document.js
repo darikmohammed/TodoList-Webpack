@@ -1,4 +1,5 @@
-import { JSDOM } from "jsdom"
+import { JSDOM } from 'jsdom';
+
 const dom = new JSDOM(
   `<!DOCTYPE html>
   <html lang="en">
@@ -41,7 +42,7 @@ const dom = new JSDOM(
       </main>
   </body>
   
-  </html>`
-)
-global.document = dom.window.document
-global.window = dom.window
+  </html>`,
+);
+global.document = dom.window.document;
+global.window = dom.window;
