@@ -162,3 +162,5 @@ const refresh = document.querySelector('.refresh-list');
 refresh.addEventListener('click', () => {
   uploadHtml();
 });
+
+export default uploadHtml;
